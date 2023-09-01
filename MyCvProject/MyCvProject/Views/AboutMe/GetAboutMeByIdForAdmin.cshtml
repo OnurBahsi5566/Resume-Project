@@ -1,0 +1,129 @@
+﻿@using MyCvProjectEntityLayer.Concrate;
+@model AboutMe
+
+@{
+    ViewData["Title"] = "AdminAddOrEdit";
+    Layout = "~/Views/Shared/_AboutMeLayout.cshtml";
+}
+
+<div class="col-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">About Me Info</h4>
+            <br />
+            <br />
+            @*<form class="form-sample">*@
+            @using (Html.BeginForm("AdminAddOrEdit", "AboutMe", FormMethod.Post))
+            {
+                <div class="row">
+                    @Html.TextBoxFor(a => a.Id, new {@class = "form-control", @hidden="true"})
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Full Name</label>
+                            <div class="col-sm-9">
+                                @Html.TextBoxFor(a => a.FullName , new {@class = "form-control"})
+                                @*<input type="text" name="FullName" class="form-control" />*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Email</label>
+                            <div class="col-sm-9">
+                                @Html.TextBoxFor(a => a.Email , new {@class = "form-control", @type="email"})
+                                @*<input type="email" name="Email" class="form-control" />*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Profession</label>
+                            <div class="col-sm-9">
+                                @Html.TextBoxFor(a => a.Profession , new {@class = "form-control"})
+                                @*<input type="text" name="Profession" class="form-control" />*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Phone</label>
+                            <div class="col-sm-9">
+                                @Html.TextBoxFor(a => a.PhoneNumber , new {@class = "form-control"})
+                                @*<input type="text" name="PhoneNumber" class="form-control" />*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Birth</label>
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(a => a.BirthDate, "{0:yyyy-MM-dd}",new {@class = "form-control", @type="date"})
+                                @*<input type="date" name="BirthDate" class="form-control" />*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Image</label>
+                            <input type="file" name="img[]" class="file-upload-default">
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    @Html.TextBoxFor(a => a.Image , new {@class = "form-control file-upload-info",@disabledplaceholder="Upload Image"})
+                                    @*<input type="text" name="Image" class="form-control file-upload-info" disabled placeholder="Upload Image">*@
+                                    <span class="input-group-append">
+                                        <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Detail</label>
+                            <div class="col-sm-9">
+                                @Html.TextAreaFor(a => a.Details , new {@class = "form-control",@rows="15"})
+                                @*<textarea class="form-control" name="Details" id="exampleTextarea1" rows="4"></textarea>*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Address</label>
+                            <div class="col-sm-9">
+                                @Html.TextAreaFor(a => a.Address , new {@class = "form-control",@rows="4"})
+                                @*<textarea class="form-control" name="Address" id="exampleTextarea1" rows="4"></textarea>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Active</label>
+                            <div class="col-sm-9">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        @Html.CheckBoxFor(a => a.Status , new {@class = "form-check-input",@checked="true"})
+                                        @*<input type="checkbox" name="Status" class="form-check-input" checked>*@
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center justify-content-center">
+                    <div class="form-group row">
+                        <button class="btn btn-gradient-primary btn-fw">Save</button>
+                    </div>
+                </div>
+            }
+            @*</form>*@
+        </div>
+    </div>
+</div>

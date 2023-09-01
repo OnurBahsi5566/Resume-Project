@@ -1,0 +1,95 @@
+﻿@using EntityLayer.Concrate;
+@model MyProject
+
+@{
+    ViewData["Title"] = "GetMyProjectById";
+    Layout = "~/Views/Shared/_MyCvLayout.cshtml";
+}
+
+<!--
+    Author: W3layouts
+    Author URL: http://w3layouts.com
+    License: Creative Commons Attribution 3.0 Unported
+    License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+
+<body>
+    <section class="banner-bottom">
+        <!--/blog-->
+        <div class="container">
+            <div class="row">
+                <!--left-->
+                <div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
+                    <div class="blog-grid-top">
+                        <div class="b-grid-top">
+                            <div class="blog_info_left_grid">
+                                <a href="single.html">
+                                    <img src="@Model.Image" class="img-fluid" alt="">
+                                </a>
+                            </div>
+                            <div class="blog-info-middle">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <i class="far fa-calendar-alt"></i> @Model.CreatedDate.ToString().Substring(0,10)
+                                        </a>
+                                    </li>
+                                    <li class="mx-2">
+                                        <a href="#">
+                                            <i class="far fa-thumbs-up"></i> 0
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            @await Component.InvokeAsync("CommentCountByMyProjectId", new { myProjectId = @Model.Id })
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h3>
+                            <a href="single.html">@Model.Name (@Model.Category.Name)  </a>
+                        </h3>
+                        <p>
+                            @Model.Description
+                        </p>
+                        <a href="/MyProject/Index" class="btn btn-primary read-m">Back Projects</a>
+                    </div>
+
+                    @await Component.InvokeAsync("CommentListByMyProjectId", new { myProjectId = ViewBag.Id })
+
+                    @await Html.PartialAsync("/Views/Comment/AddCommentPartial.cshtml")
+                </div>
+
+                <!--//left-->
+                <!--right-->
+                <aside class="col-lg-4 agileits-w3ls-right-blog-con text-right">
+                    <div class="right-blog-info text-left">
+
+                        @await Html.PartialAsync("~/Views/NewsletterPerson/AddNewsletterPerson.cshtml")
+
+                        @await Component.InvokeAsync("CategoryList")
+
+                        @await Component.InvokeAsync("MostLikedProjectList")
+
+                        @await Component.InvokeAsync("OurProgressTheme")
+
+                        @await Component.InvokeAsync("RecentProject")
+                    </div>
+
+                </aside>
+                <!--//right-->
+            </div>
+        </div>
+    </section>
+    <!--//main-->
+    <!---->
+</body>
+
+</html>

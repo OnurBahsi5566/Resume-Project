@@ -1,0 +1,18 @@
+﻿@using EntityLayer.Concrate;
+@model List<Comment>
+
+<div class="comment-top">
+    <h4>Comments</h4>
+    @foreach (var item in Model)
+    {
+        <div class="media">
+            @*<img src="~/MyCvTheme/images/t1.jpg" alt="" class="img-fluid" />*@
+            <div class="media-body">
+                <h5 class="mt-0">@item.User.FullName</h5>
+                <p>
+                    @item.Content
+                </p>
+            </div>
+        </div>
+    }
+</div>

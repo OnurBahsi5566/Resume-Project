@@ -1,0 +1,34 @@
+﻿@using EntityLayer.Concrate;
+@model List<MyProject>
+
+<div class="col-lg-4 footer-grid-agileits-w3ls text-left">
+
+    <div class="tech-btm">
+        <h3>Latest Posts</h3>
+        <div class="blog-grids row mb-3">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-5 blog-grid-left">
+                    <a href="/MyProject/GetMyProjectById/@item.Id">
+                        <img src="@item.Image" class="card-img-top img-fluid" alt=""
+                         style="object-fit:fill;
+                                        width:100px;
+                                        height:50px;
+                                        border: solid 1px #CCC">
+                    </a>
+                </div>
+                <div class="col-md-7 blog-grid-right">
+
+                    <h5>
+                        <a href="/MyProject/GetMyProjectById/@item.Id">@item.Name </a>
+                    </h5>
+                    <div class="sub-meta">
+                        <span>
+                            <i class="far fa-clock"></i> @item.CreatedDate.ToString().Substring(0,10)
+                        </span>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

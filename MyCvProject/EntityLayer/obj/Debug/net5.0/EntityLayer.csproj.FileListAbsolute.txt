@@ -1,0 +1,12 @@
+C:\projelerim\MyCvProject\EntityLayer\bin\Debug\net5.0\EntityLayer.deps.json
+C:\projelerim\MyCvProject\EntityLayer\bin\Debug\net5.0\EntityLayer.dll
+C:\projelerim\MyCvProject\EntityLayer\bin\Debug\net5.0\EntityLayer.pdb
+C:\projelerim\MyCvProject\EntityLayer\obj\Debug\net5.0\EntityLayer.csproj.AssemblyReference.cache
+C:\projelerim\MyCvProject\EntityLayer\obj\Debug\net5.0\EntityLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\projelerim\MyCvProject\EntityLayer\obj\Debug\net5.0\EntityLayer.AssemblyInfoInputs.cache
+C:\projelerim\MyCvProject\EntityLayer\obj\Debug\net5.0\EntityLayer.AssemblyInfo.cs
+C:\projelerim\MyCvProject\EntityLayer\obj\Debug\net5.0\EntityLayer.csproj.CoreCompileInputs.cache
+C:\projelerim\MyCvProject\EntityLayer\obj\Debug\net5.0\EntityLayer.dll
+C:\projelerim\MyCvProject\EntityLayer\obj\Debug\net5.0\refint\EntityLayer.dll
+C:\projelerim\MyCvProject\EntityLayer\obj\Debug\net5.0\EntityLayer.pdb
+C:\projelerim\MyCvProject\EntityLayer\obj\Debug\net5.0\ref\EntityLayer.dll

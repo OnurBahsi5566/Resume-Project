@@ -1,0 +1,128 @@
+﻿@using MyCvProjectEntityLayer.Concrate;
+@model List<AboutMe>
+
+@{
+    ViewData["Title"] = "AdminPanel";
+    Layout = "~/Views/Shared/_AboutMeLayout.cshtml";
+    string statusClass = "", statusName = "", address = "", details = "";
+}
+
+<style>
+    .table_wrapperMe {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+</style>
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">About Me List</h4>
+            <br />
+            <br />
+           <div class="row">
+                @*<div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Enter the word" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-sm btn-gradient-info" type="button">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <a href="/AboutMe/GetAboutMeByIdForAdmin/0" class="btn btn-gradient-info btn-fw">Add New</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-hover table_wrapperMe" id="tblAboutMe">
+                <thead>
+                    <tr>
+                        <th>Actions</th>
+                        <th>Status</th>
+                        <th>Full Name</th>
+                        <th>Profession</th>
+                        <th>Email</th>
+                        <th>BirthDate</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            @if (item.Status == true)
+                            {
+                                statusClass = "badge-success";
+                                statusName = "Active";
+                            }
+                            else
+                            {
+                                statusClass = "badge-danger";
+                                statusName = "Passive";
+                            }
+
+                            <td>
+                                <a href="/AboutMe/PassiveDelete/@item.Id" class="btn btn-gradient-danger btn-sm">Delete</a>
+                                <a href="/AboutMe/GetAboutMeByIdForAdmin/@item.Id" class="btn btn-gradient-warning btn-sm">Edit</a>
+                            </td>
+
+                            <td><label class="badge @statusClass">@statusName</label></td>
+                            <td>@item.FullName</td>
+                            <td>@item.Profession</td>
+                            <td>@item.Email</td>
+                            <td>@item.BirthDate.ToShortDateString()</td>
+                            <td>@item.PhoneNumber</td>
+
+                            @if (item.Address.Length > 50)
+                            {
+                                address = @item.Address.Substring(0, item.Address.Substring(0, 50).LastIndexOf(" ")) + "...";
+                            }
+                            else
+                            {
+                                address = @item.Address;
+
+                            }
+
+                            @if (item.Details.Length > 50)
+                            {
+                                details = @item.Details.Substring(0, item.Details.Substring(0, 50).LastIndexOf(" ")) + "...";
+                            }
+                            else
+                            {
+                                details = @item.Details;
+                            }
+
+                            <td>@address</td>
+                            <td>@details</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+
+
+<script>
+    var js = jQuery.noConflict(true);
+
+    js(document).ready(function () {
+        js('#tblAboutMe').DataTable({
+
+        });
+    });
+
+</script>

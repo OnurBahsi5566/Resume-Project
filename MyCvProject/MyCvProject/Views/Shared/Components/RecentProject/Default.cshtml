@@ -1,0 +1,20 @@
+﻿@using EntityLayer.Concrate;
+@model MyProject
+
+<div class="single-gd tech-btm">
+    <h4>Recent Project</h4>
+    <div class="blog-grids">
+        <div class="blog-grid-left">
+            <a href="/MyProject/GetMyProjectById/@Model.Id">
+                <img src="@Model.Image" class="img-fluid" alt="">
+            </a>
+        </div>
+        <div class="blog-grid-right">
+
+            <h5>
+                <a href="/MyProject/GetMyProjectById/@Model.Id">@Model.Name</a>
+            </h5>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>

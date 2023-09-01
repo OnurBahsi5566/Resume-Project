@@ -1,0 +1,85 @@
+﻿@using EntityLayer.Concrate;
+@model List<MyProject>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MyCvLayout.cshtml";
+}
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="/MyProject/Index">Home</a>
+    </li>
+    <li class="breadcrumb-item active">Projects</li>
+</ol>
+
+<section class="main-content-w3layouts-agileits">
+    <div class="container">
+        <h3 class="tittle">Project Informations</h3>
+        <div class="inner-sec">
+            <!--left-->
+            <div class="left-blog-info-w3layouts-agileits text-left">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-4 card">
+                            <a href="/MyProject/GetMyProjectById/@item.Id">
+                                <img src="@item.Image" class="card-img-top img-fluid" alt=""
+                                 style="object-fit:fill;
+                                        width:400px;
+                                        height:200px;
+                                        border: solid 1px #CCC">
+                            </a>
+                            <div class="card-body">
+                                <ul class="blog-icons my-4">
+                                    <li>
+                                        <a href="/MyProject/GetMyProjectById/@item.Id">
+                                            <i class="far fa-calendar-alt"></i> @item.CreatedDate.ToString().Substring(0,10)
+                                        </a>
+                                    </li>
+                                    <li class="mx-2">
+                                        <a href="/MyProject/GetMyProjectById/@item.Id">
+                                            @await Component.InvokeAsync("CommentCountByMyProjectId", new { myProjectId = item.Id })
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/MyProject/GetMyProjectById/@item.Id">
+                                            <i class="fas fa-eye"></i> @item.Category.Name
+                                        </a>
+                                    </li>
+
+                                </ul>
+                                <h5 class="card-title">
+                                    <a href="single.html">@item.Name.Substring(0,item.Name.Substring(0,25).LastIndexOf(" "))...</a>
+                                </h5>
+                                <p class="card-text mb-3">@item.Description.Substring(0,item.Description.Substring(0,130).LastIndexOf(" "))...</p>
+                                <a href="/MyProject/GetMyProjectById/@item.Id" class="btn btn-primary read-m">Read More</a>
+                            </div>
+                        </div>
+                    }
+
+                    @*<nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-left mt-4">
+                    <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    </li>
+                    <li class="page-item">
+                    <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                    <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                    <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                    </li>
+                    </ul>
+                    </nav>*@
+                </div>
+                <!--//left-->
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,63 @@
+﻿@using MyCvProjectEntityLayer.Concrate;
+@model User
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MyCvLayout.cshtml";
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<a href="~/lib/jquery/dist/jquery.min.map"></a>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<section class="main-content-w3layouts-agileits">
+    <div class="container">
+        <h3 class="tittle">Register Now</h3>
+        <div class="inner-sec">
+            <div class="login p-5 bg-light mx-auto mw-100">
+                @using (Html.BeginForm("AddorEditUser", "Register", FormMethod.Post))
+                {
+                    <div class="form-row" hidden>
+                        <div class="col-md-6 mb-3">
+                            <label for="txtId">Id</label>
+                            @Html.TextBoxFor(usr => usr.Id, new {@class = "form-control"})
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="txtEmail">Email</label>
+                            @Html.TextBoxFor(usr => usr.Email, new {@class = "form-control",@type="email",@placeholder="Enter Email Address"})
+                            @Html.ValidationMessageFor(usr => usr.Email,"",new {@class = "text-danger"})
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="txtFullName">Full Name</label>
+                            @Html.TextBoxFor(usr => usr.FullName, new {@class = "form-control",@placeholder="Enter Full Name"})
+                            @Html.ValidationMessageFor(usr => usr.FullName,"",new {@class = "text-danger"})
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="txtPassword mb-2">Password</label>
+                            @Html.TextBoxFor(usr => usr.Password, new {@class = "form-control",@type="password"})
+                            @Html.ValidationMessageFor(usr => usr.Password,"",new {@class = "text-danger"})
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="txtConfirmPassword mb-2">Confirm Password</label>
+                            @Html.TextBoxFor(usr => usr.Password, new {@class = "form-control",@type="password"})
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary submit mb-4">Register</button>
+                    <p>
+                        <a href="#" id="btnConfirm">By clicking Signup, I agree to your terms</a>
+                    </p>
+                }
+            </div>
+        </div>
+    </div>
+    <script>
+        $('#btnConfirm').click(function () {
+            swal("Bu bir onay mesajıdır.Onaylamak için lütfen kutucuğu işaretleyin. ");
+        })
+    </script>
+</section>

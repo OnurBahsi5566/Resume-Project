@@ -1,0 +1,20 @@
+﻿@using EntityLayer.Concrate;
+@model About
+
+@{
+    ViewData["Title"] = "GetAboutById";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>GetAboutById</h1>
+
+@using (Html.BeginForm("AddAbout","About",FormMethod.Post))
+{
+    <b hidden>Id</b>
+    @Html.TextBoxFor(abt => abt.Id, new {@class = "form-control", @hidden="true"})
+    <br />
+    <b>Details</b>
+    @Html.TextBoxFor(abt => abt.Details1, new {@class = "form-control"})
+    <br />
+    <button class="btn btn-success">Save</button>
+}

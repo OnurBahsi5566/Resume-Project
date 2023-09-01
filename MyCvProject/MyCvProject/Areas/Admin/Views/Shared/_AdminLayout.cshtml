@@ -1,0 +1,95 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>INSPINIA | Static Tables</title>
+
+    <link href="~/AdminTheme/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/AdminTheme/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="~/AdminTheme/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="~/AdminTheme/css/animate.css" rel="stylesheet">
+    <link href="~/AdminTheme/css/style.css" rel="stylesheet">
+    <link href="~/AdminThme/css/plugins/dataTables/datatables.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+      @await Html.PartialAsync("_AdminSidebarPartial")
+
+        <div id="page-wrapper" class="gray-bg">
+            
+            @await Html.PartialAsync("_AdminNavbarPartial")
+
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2>Static Tables</h2>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a>Tables</a>
+                        </li>
+                        <li class="breadcrumb-item active">
+                            <strong>Static Tables</strong>
+                        </li>
+                    </ol>
+                </div>
+                <div class="col-lg-2">
+                </div>
+            </div>
+            <div class="wrapper wrapper-content animated fadeInRight">
+                @RenderBody()
+            </div>
+            
+            @await Html.PartialAsync("_AdminFooterPartial")
+
+        </div>
+    </div>
+
+
+
+    <!-- Mainly scripts -->
+    <script src="~/AdminTheme/js/jquery-3.1.1.min.js"></script>
+    <script src="~/AdminTheme/js/popper.min.js"></script>
+    <script src="~/AdminTheme/js/bootstrap.js"></script>
+    <script src="~/AdminTheme/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="~/AdminTheme/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Peity -->
+    <script src="~/AdminTheme/js/plugins/peity/jquery.peity.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="~/AdminTheme/js/inspinia.js"></script>
+    <script src="~/AdminTheme/js/plugins/pace/pace.min.js"></script>
+
+    <!-- iCheck -->
+    <script src="~/AdminTheme/js/plugins/iCheck/icheck.min.js"></script>
+
+    <!-- Peity -->
+    <script src="~/AdminTheme/js/demo/peity-demo.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+﻿@using EntityLayer.Concrate;
+@model List<About>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>DETAILS</th>
+        <th>DELETE</th>
+        <th>UPDATE</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Details1</td>
+            <td><a href="/About/DeleteAbout/@item.Id" class="btn btn-outline-danger">Delete</a></td>
+            <td><a href="/About/GetAboutById/@item.Id" class="btn btn-outline-success">Update</a></td>
+        </tr>
+    }
+</table>
+<a href="/About/GetAboutById/0" class="btn btn-outline-primary">New</a>

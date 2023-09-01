@@ -1,0 +1,66 @@
+﻿@using MyCvProjectEntityLayer.Concrate;
+@model AboutMe
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MyCvLayout.cshtml";
+}
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="/MyProject/Index/">Home</a>
+    </li>
+    <li class="breadcrumb-item active">About</li>
+</ol>
+<!--//banner-->
+<!--/main-->
+<section class="main-content-w3layouts-agileits">
+    <div class="container">
+        <h3 class="tittle">About Me</h3>
+        <div class="row inner-sec">
+            <!--left-->
+            <div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
+                <div class="blog-grid-top">
+                    <div class="blog_info_left_grid">
+                        <a href="/AboutMe/Index/">
+                            <img src="@Model.Image" class="img-fluid" alt="">
+                        </a>
+                    </div>
+                    <h3>
+                        @Model.FullName.ToUpper()
+                    </h3>
+                    <h3>
+                        @Model.BirthDate.ToShortDateString()
+                    </h3>
+                    <h3>
+                        @Model.Profession
+                    </h3>
+                    <p>
+                        @Model.Details
+                    </p>
+                    @*<a href="single.html" class="btn btn-primary read-m">Read More</a>*@
+                </div>
+
+                @await Component.InvokeAsync("CompanyWorkForList")
+
+            </div>
+            <!--//left-->
+            <!--right-->
+            <aside class="col-lg-4 agileits-w3ls-right-blog-con text-right">
+                <div class="right-blog-info text-left">
+
+                    @await Html.PartialAsync("~/Views/NewsletterPerson/AddNewsletterPerson.cshtml")
+
+                    @await Component.InvokeAsync("StayConnectTheme")
+
+                    @await Component.InvokeAsync("OurProgressTheme")
+
+                    @await Component.InvokeAsync("ProjectCategories")
+                </div>
+
+            </aside>
+            <!--//right-->
+        </div>
+    </div>
+</section>
+<!--//main-->

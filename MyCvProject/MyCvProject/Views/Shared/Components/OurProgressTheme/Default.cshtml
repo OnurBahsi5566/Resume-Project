@@ -1,0 +1,42 @@
+﻿@using MyCvProjectEntityLayer.Concrate;
+@model List<Ability>
+
+@{
+    int counter = 1;
+    string className = "";
+}
+
+<div class="single-gd my-5 tech-btm">
+    <h4>My Progress</h4>
+    @foreach (var item in Model)
+    {
+        if (counter % 5 == 1)
+        {
+            className = "progress-bar progress-bar-striped";
+        }
+        else if (counter % 5 == 2)
+        {
+            className = "progress-bar progress-bar-striped bg-success";
+        }
+        else if (counter % 5 == 3)
+        {
+            className = "progress-bar progress-bar-striped bg-info";
+        }
+        else if (counter % 5 == 4)
+        {
+            className = "progress-bar progress-bar-striped bg-warning";
+        }
+        else if (counter % 5 == 0)
+        {
+            className = "progress-bar progress-bar-striped bg-danger";
+        }
+
+        <p>@item.Name</p>
+        <div class="progress">
+            <div class="@className" role="progressbar" style="width: @item.Level%" aria-valuenow="@item.Level" aria-valuemin="0"
+             aria-valuemax="100"></div>
+        </div>
+
+        counter++;
+    }
+</div>

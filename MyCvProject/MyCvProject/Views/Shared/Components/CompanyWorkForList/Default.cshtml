@@ -1,0 +1,39 @@
+﻿@using MyCvProjectEntityLayer.Concrate;
+@model List<CompanyWorkFor>
+
+@{
+    string endDate = null;
+}
+
+<div class="row">
+    <div class="col-md-6 card mt-3">
+        <h3 class="card-title">Experiences </h3>
+        @foreach (var item in Model)
+        {
+            <img class="card-img-top" src="@item.Image" alt="Card-image"
+             style="object-fit:fill;
+                    width:400px;
+                    height:100px;
+                    border: solid 1px #CCC">
+
+            <div class="card-body">
+                <div class="sub-meta">
+                    <span>
+                        <i class="far fa-clock"></i> @item.StartDate.ToShortDateString()  -
+                        @if (item.EndDate != null)
+                        {
+                            endDate = @item.EndDate.ToString().Substring(0, 10);
+                        }
+                        else
+                        {
+                            endDate = "Devam Ediyor";
+                        }
+                        <i class="far fa-clock"></i>   @endDate
+                    </span>
+                </div>
+                <p class="card-text mb-3">@item.Detail </p>
+                @*<a href="single.html" class="btn btn-primary read-m">Read More</a>*@
+            </div>
+        }
+    </div>
+</div>

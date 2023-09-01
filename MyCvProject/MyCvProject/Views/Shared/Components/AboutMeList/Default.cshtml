@@ -1,0 +1,21 @@
+﻿@using MyCvProjectEntityLayer.Concrate;
+@model AboutMe
+
+@{
+    string details = "";
+}
+<div class="col-lg-4 footer-grid-agileits-w3ls text-left">
+    <h3>About ME</h3>
+    @if (Model.Details.Length >= 180)
+    {
+        details = @Model.Details.Substring(0, Model.Details.Substring(0, 180).LastIndexOf(" ")) + "...";
+    }
+    else
+    {
+        details = @Model.Details;
+    }
+    <p>@details</p>
+    <div class="read">
+        <a href="/AboutMe/Index/" class="btn btn-primary read-m">Read More</a>
+    </div>
+</div>
